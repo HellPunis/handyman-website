@@ -893,7 +893,6 @@ body {
     background: var(--primary-blue);
     color: var(--white);
     padding: 2.5rem 1rem;
-    margin-top: 6rem;
     border-top: 2px solid var(--primary-orange);
 }
 
