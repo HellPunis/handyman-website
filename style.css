@@ -176,6 +176,12 @@ body {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-right: 8px;
+}
+
+.cta-button i {
+    margin-right: 8px;
+    font-size: 0.9em;
 }
 
 .cta-button:hover {
@@ -939,4 +945,31 @@ body {
         display: block;
         padding: 0.4rem 0;
     }
+}
+
+.copy-alert {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 25px;
+    background: var(--primary-blue);
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.copy-alert.show {
+    opacity: 1;
+}
+
+.copy-alert i {
+    font-size: 1.2rem;
+    color: var(--primary-orange);
 }
