@@ -41,7 +41,9 @@
 					<a href="#gallery" class="nav-link">Gallery</a>
 					<a href="#contact" class="nav-link">Contacts</a>
 				</nav>
-				<button class="cta-button" onclick="location.href='#contact'">Get a Quote</button>
+				<button class="cta-button" onclick="handlePhoneClick()">
+					<i class="fas fa-phone-alt"></i>Get a Quote
+				</button>
 			</div>
 		</div>
 	</header>
@@ -265,7 +267,7 @@
 					<form class="contact-form" action="https://formspree.io/f/myzwepvo" method="POST">
 						<input type="text" name="name" placeholder="Your Name" required>
 						<input type="text" name="contact_info" placeholder="Phone or Email" required>
-						<textarea name="message" placeholder="Details" rows="6" required></textarea>
+						<textarea name="message" placeholder="Task Details" rows="6" required></textarea>
 						<button type="submit" class="form-submit-btn">Send Request</button>
 					</form>
 				</div>
@@ -331,5 +333,62 @@
         </p>
     </div>
 </footer>
+<script>
+function handlePhoneClick() {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        window.location.href = 'tel:+13479449625';
+    } else {
+        navigator.clipboard.writeText('+1 (347) 944-9625');
+        alert('Phone number copied to clipboard: +1 (347) 944-9625');
+    }
+}
+
+function handlePhoneClick() {
+    const phoneNumber = '+13479449625';
+    
+    if (/Mobi/.test(navigator.userAgent)) {
+        // Для мобильных устройств - звонок
+        window.location.href = `tel:${phoneNumber}`;
+    } else {
+        // Для компьютеров - копирование в буфер
+        if(navigator.clipboard) {
+            navigator.clipboard.writeText(phoneNumber)
+                .then(() => showCopiedAlert())
+                .catch(() => fallbackCopy(phoneNumber));
+        } else {
+            fallbackCopy(phoneNumber);
+        }
+    }
+}
+
+function fallbackCopy(text) {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    document.body.appendChild(textArea);
+    textArea.select();
+    try {
+        document.execCommand('copy');
+        showCopiedAlert();
+    } catch (err) {
+        console.error('Failed to copy text: ', err);
+    }
+    document.body.removeChild(textArea);
+}
+
+function showCopiedAlert() {
+    const alert = document.getElementById('phone-copy-alert');
+    alert.classList.add('show');
+    
+    setTimeout(() => {
+        alert.classList.remove('show');
+    }, 2000);
+}
+
+</script>
+
+<div id="phone-copy-alert" class="copy-alert">
+    <i class="fas fa-check-circle"></i> Phone number copied!
+</div>
+
 </body>
 </html>
