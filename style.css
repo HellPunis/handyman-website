@@ -190,6 +190,77 @@ body {
     box-shadow: 0 4px 15px rgba(247, 147, 30, 0.3);
 }
 
+@media (max-width: 768px) {
+    .nav-group {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .cta-button {
+        margin-left: 0;
+        order: 1; /* Кнопка будет последней */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Убедимся, что кнопка занимает всю ширину */
+    .cta-button {
+        width: 100%;
+        max-width: 100%;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        order: 2; /* Размещаем кнопку после навигации */
+    }
+
+    /* Центрируем элементы навигации */
+    .navigation {
+        width: 100%;
+        justify-content: center;
+        gap: 0.5rem;
+        order: 1; /* Навигация будет выше кнопки */
+    }
+
+    /* Уменьшаем отступы в хедере */
+    .header-content {
+        gap: 1rem;
+        padding: 0 3%;
+    }
+
+    /* Улучшаем читаемость текста */
+    .nav-link {
+        font-size: 0.8rem;
+        padding: 0.3rem;
+    }
+
+    /* Гарантируем правильное расположение элементов */
+    .nav-group {
+        gap: 0.8rem;
+        padding: 0 0 1rem;
+    }
+
+    /* Уменьшаем логотип для очень маленьких экранов */
+    .logo {
+        height: 45px;
+    }
+
+    .company-name {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 380px) {
+    /* Дополнительные правки для самых маленьких экранов */
+    .nav-link {
+        font-size: 0.75rem;
+    }
+    
+    .cta-button {
+        font-size: 0.85rem;
+        padding: 10px 15px;
+    }
+}
+
 /* Hero Section */
 .hero-section {
     background: 
