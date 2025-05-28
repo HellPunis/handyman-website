@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MC Pro Builders LLC</title>
+    <title>MC Pro Builders LLC - Licensed Handyman & Home Improvement Services NJ</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 
@@ -13,8 +13,21 @@
 	<meta name="msapplication-TileColor" content="#0066cc">
 	<meta name="theme-color" content="#0066cc">
 
-	<meta name="description" content="Licensed and Insured Handyman services in Old Bridge, Marlboro, Freehold and nearby. Call: (347) 944-9625">
-	<!-- Favicon -->
+	<meta name="description" content="Licensed, Insured & Bonded handyman services in Old Bridge, Marlboro, Freehold, Matawan, Manalapan, Holmdel NJ and nearby. Offering furniture assembly, TV mounting, painting, repairs & more. Get a FREE estimate! Call: (347) 944-9625">
+	
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mcprobuilders.com/">
+    <meta property="og:title" content="MC Pro Builders LLC - Licensed Handyman & Home Improvement Services NJ">
+    <meta property="og:description" content="Licensed, Insured & Bonded handyman services in Old Bridge, Marlboro, Freehold, Matawan, Manalapan, Holmdel NJ and nearby. Offering furniture assembly, TV mounting, painting, repairs & more. Get a FREE estimate! Call: (347) 944-9625">
+    <meta property="og:image" content="https://mcprobuilders.com/pictures/hero-bg.jpg">
+    <meta property="og:site_name" content="MC Pro Builders LLC">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mcprobuilders.com/">
+    <meta name="twitter:title" content="MC Pro Builders LLC - Licensed Handyman & Home Improvement Services NJ">
+    <meta name="twitter:description" content="Licensed, Insured & Bonded handyman services in Old Bridge, Marlboro, Freehold, Matawan, Manalapan, Holmdel NJ and nearby. Offering furniture assembly, TV mounting, painting, repairs & more. Get a FREE estimate! Call: (347) 944-9625">
+    <meta name="twitter:image" content="https://mcprobuilders.com/pictures/hero-bg.jpg">
+
 	<link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
 	<link rel="icon" href="/favicon/favicon.ico?v=2" sizes="any">
 	<link rel="icon" href="/favicon/favicon.svg?v=2" type="image/svg+xml">
@@ -25,11 +38,10 @@
 	
 </head>
 <body>
-    <!-- Fixed Header -->
     <header class="header">
 		<div class="header-content">
 			<div class="logo-group">
-				<img src="pictures/logo.png" alt="Logo" class="logo">
+				<img src="pictures/logo.png" alt="MC Pro Builders LLC Logo" class="logo">
 				<span class="company-name">MC Pro Builders LLC</span>
 			</div>
         
@@ -40,14 +52,13 @@
 					<a href="#gallery" class="nav-link">Gallery</a>
 					<a href="#contact" class="nav-link">Contacts</a>
 				</nav>
-				<button class="cta-button" onclick="handlePhoneClick()">
-					<i class="fas fa-phone-alt"></i>Get a Quote
+				<button class="cta-button" onclick="location.href='#contact'">Get a Quote
 				</button>
 			</div>
 		</div>
 	</header>
 
-    <!-- Hero Section -->
+    <main>
     <section id="home" class="hero-section">
         <div class="hero-overlay">
             <h1 class="hero-title">
@@ -56,26 +67,22 @@
                 Home Improvement Services<br>
                 in Old Bridge, Marlboro, Freehold and nearby
             </h1>
-            <button class="hero-cta" onclick="location.href='#contact'">Get a Quote</button>
+            <button class="hero-cta" onclick="handlePhoneClick()"><i class="fas fa-phone-alt"></i> Get a FREE Quote</button>
         </div>
     </section>
     
-    <!-- Info Section -->
-	<section class="features-section">
+    <section class="features-section">
 		<div class="features-container">
-			<!-- Licensed Section -->
 			<div class="feature-card">
 				<i class="fas fa-user-shield feature-icon"></i>
 				<h3 class="feature-title">Licensed, Insured & Bonded</h3>
 			</div>
 
-			<!-- Free Estimates -->
 			<div class="feature-card">
 				<i class="fas fa-gift feature-icon"></i>
 				<h3 class="feature-title">FREE Estimates</h3>
 			</div>
 
-			<!-- Time-Saving -->
 			<div class="feature-card">
 				<i class="fas fa-stopwatch feature-icon"></i>
 				<h3 class="feature-title">24/7 Fast Responses</h3>
@@ -83,12 +90,11 @@
 		</div>
 	</section>
 	
-	<!-- Service-promise -->
 	<section class="service-promise">
 		<div class="section-container">
 			<div class="promise-content">
 				<div class="logo-side">
-					<img src="pictures/logotxt.png" alt="MC Pro Builders Logo" class="promise-logo">
+					<img src="pictures/logotxt.png" alt="MC Pro Builders Logo Text" class="promise-logo">
 				</div>
             
 				<div class="text-side">
@@ -112,7 +118,6 @@
 		</div>
 	</section>
 
-    <!-- Services Section -->
     <section id="services" class="services-section">
         <div class="section-container">
             <h2 class="section-title">Our Services</h2>
@@ -192,7 +197,6 @@
         </div>
     </section>
     
-    <!-- Get estimate button -->
     <section class="estimate-cta">
 		<div class="section-container">
 			<button onclick="location.href='#contact'" class="estimate-button">
@@ -201,64 +205,59 @@
 		</div>
 	</section>
 
-    <!-- Gallery Section -->
-    
-	<section id="gallery" class="gallery-section">
+    <section id="gallery" class="gallery-section">
 		<div class="section-container">
 			<h2 class="section-title">Our Works</h2>
 			<div class="gallery-grid">
-				<!-- Each image with description -->
 				<div class="gallery-item">
-					<img src="pictures/work1.jpg" style="aspect-ratio: 1/1; height: auto; width: 100%" alt="Project example" class="gallery-image">
+					<img src="pictures/work1.jpg" alt="Outside house painting project" class="gallery-image" loading="lazy">
 					<div class="gallery-caption">Outside painting</div>
 				</div>
             
 				<div class="gallery-item">
-					<img src="pictures/work2.jpg" style="aspect-ratio: 1/1; height: auto; width: 100%" alt="Project example" class="gallery-image">
+					<img src="pictures/work2.jpg" alt="Repair of a crack in a stone porch" class="gallery-image" loading="lazy">
 					<div class="gallery-caption">Repair of the crack in a stone porch</div>
 				</div>
             
 				<div class="gallery-item">
-					<img src="pictures/work3.jpg" style="aspect-ratio: 1/1; height: auto; width: 100%" alt="Project example" class="gallery-image">
+					<img src="pictures/work3.jpg" alt="Sapling planting service" class="gallery-image" loading="lazy">
 					<div class="gallery-caption">Sapling planting</div>
 				</div>
             
 				<div class="gallery-item">
-					<img src="pictures/work4.jpg" style="aspect-ratio: 1/1; height: auto; width: 100%" alt="Project example" class="gallery-image">
+					<img src="pictures/work4.jpg" alt="Furniture assembly service" class="gallery-image" loading="lazy">
 					<div class="gallery-caption">Furniture assembly</div>
 				</div>
             
 				<div class="gallery-item">
-					<img src="pictures/work5.jpg" style="aspect-ratio: 1/1; height: auto; width: 100%" alt="Project example" class="gallery-image">
+					<img src="pictures/work5.jpg" alt="Patio pavering and foundation repair" class="gallery-image" loading="lazy">
 					<div class="gallery-caption">Patio pavering and the foundation repair</div>
 				</div>
             
 				<div class="gallery-item">
-					<img src="pictures/work6.jpg" style="aspect-ratio: 1/1; height: auto; width: 100%" alt="Project example" class="gallery-image">
+					<img src="pictures/work6.jpg" alt="Fan luminaire installation" class="gallery-image" loading="lazy">
 					<div class="gallery-caption">Fan luminaire installation</div>
 				</div>
 				
 				<div class="gallery-item">
-					<img src="pictures/work7.jpg" style="aspect-ratio: 1/1; height: auto; width: 100%" alt="Project example" class="gallery-image">
+					<img src="pictures/work7.jpg" alt="Mini-house building project" class="gallery-image" loading="lazy">
 					<div class="gallery-caption">Mini-house building</div>
 				</div>
 				
 				<div class="gallery-item">
-					<img src="pictures/work8.jpg" style="aspect-ratio: 1/1; height: auto; width: 100%" alt="Project example" class="gallery-image">
+					<img src="pictures/work8.jpg" alt="Roofing repair service" class="gallery-image" loading="lazy">
 					<div class="gallery-caption">Roofing</div>
 				</div>
 				
 				<div class="gallery-item">
-					<img src="pictures/work9.jpg" style="aspect-ratio: 1/1; height: auto; width: 100%" alt="Project example" class="gallery-image">
+					<img src="pictures/work9.jpg" alt="Painting and door installation services" class="gallery-image" loading="lazy">
 					<div class="gallery-caption">Painting and door installation services</div>
 				</div>
 			</div>
 		</div>
 	</section>
-    <!-- style="aspect-ratio: 1/1; height: auto; width: 100%" --!>
-
-		<!-- Contact Section -->
-	<section id="contact" class="contact-section">
+    
+		<section id="contact" class="contact-section">
 		<div class="section-container">
 			<div class="contact-wrapper">
 				<div class="form-container">
@@ -278,78 +277,67 @@
 					</div>
                 
 					<div class="contact-info">
-    <h3><i class="fas fa-address-card"></i> Contact Details</h3>
-    <p>
-		<a><i class="fas fa-user"></i>  Ivan</a>
-    </p>
-    <p>
-        <a href="tel:+13479449625" class="contact-link">
-            <i class="fas fa-phone"></i> +1 (347) 944-9625
-        </a>
-        <a href="sms:+13479449625" class="contact-link">
-			<i class="fas fa-comment-alt"></i> Text Me
-		</a>
-    </p>
+                        <h3><i class="fas fa-address-card"></i> Contact Details</h3>
+                        <p>
+                            <a itemprop="url"><i class="fas fa-user"></i>  Ivan</a>
+                        </p>
+                        <p>
+                            <a href="tel:+13479449625" class="contact-link" itemprop="url">
+                                <i class="fas fa-phone"></i> +1 (347) 944-9625
+                            </a>
+                            <a href="sms:+13479449625" class="contact-link" itemprop="url">
+                                <i class="fas fa-comment-alt"></i> Text Me
+                            </a>
+                        </p>
 
-    <p>
-        <a href="mailto:ivan.handyman.pro@gmail.com?subject=Service%20Inquiry&body=Hello%20Ivan,%0A%0AI%20need%20help%20with..." class="contact-link">
-			<i class="fas fa-envelope"></i> ivan.handyman.pro@gmail.com
-        </a>
-    </p>
-	<p class="social-links">
-		<a href="https://www.facebook.com/IvanHandymanPro" 
-			target="_blank" 
-			rel="noopener noreferrer"
-			class="social-link">
-			<i class="fab fa-facebook"></i> Facebook
-		</a>
-		<a href="https://wa.me/13479449625" 
-			target="_blank" 
-			rel="noopener noreferrer"
-			class="social-link">
-			<i class="fab fa-whatsapp"></i> WhatsApp
-		</a>
-		<a href="https://t.me/IvanHandyman" 
-			target="_blank" 
-			rel="noopener noreferrer"
-			class="social-link">
-			<i class="fab fa-telegram-plane"></i> Telegram
-		</a>
-	</p>
-</div>
+                        <p>
+                            <a href="mailto:ivan.handyman.pro@gmail.com?subject=Service%20Inquiry&body=Hello%20Ivan,%0A%0AI%20need%20help%20with..." class="contact-link" itemprop="url">
+                                <i class="fas fa-envelope"></i> ivan.handyman.pro@gmail.com
+                            </a>
+                        </p>
+                        <p class="social-links">
+                            <a href="https://www.facebook.com/IvanHandymanPro" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="social-link"
+                                itemprop="url">
+                                <i class="fab fa-facebook"></i> Facebook
+                            </a>
+                            <a href="https://wa.me/13479449625" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="social-link"
+                                itemprop="url">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                            <a href="https://t.me/IvanHandyman" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="social-link"
+                                itemprop="url">
+                                <i class="fab fa-telegram-plane"></i> Telegram
+                            </a>
+                        </p>
+                    </div>
 				</div>
 			</div>
 		</div>
 	</section>
+    </main>
 <footer class="main-footer">
     <div class="footer-content">
         <p class="copyright-notice">
             &copy; 2025 MC Pro Builders LLC. All Rights Reserved.<br>
-	<!--<span class="footer-links">
-                <a href="/privacy" class="footer-link">Privacy Policy</a> | 
-                <a href="/terms" class="footer-link">Terms of Service</a>
-            </span> -->
-        </p>
+	</p>
     </div>
 </footer>
 <script>
 function handlePhoneClick() {
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        window.location.href = 'tel:+13479449625';
-    } else {
-        navigator.clipboard.writeText('+1 (347) 944-9625');
-        alert('Phone number copied to clipboard: +1 (347) 944-9625');
-    }
-}
-
-function handlePhoneClick() {
     const phoneNumber = '+13479449625';
     
     if (/Mobi/.test(navigator.userAgent)) {
-        // Для мобильных устройств - звонок
         window.location.href = `tel:${phoneNumber}`;
     } else {
-        // Для компьютеров - копирование в буфер
         if(navigator.clipboard) {
             navigator.clipboard.writeText(phoneNumber)
                 .then(() => showCopiedAlert())
@@ -390,8 +378,9 @@ function showCopiedAlert() {
   	"@context": "https://schema.org",
  	"@type": "HomeAndConstructionBusiness",
  	"name": "MC Pro Builders LLC",
-	"image": "https://mcprobuilders.com/logo.png",
-	"telephone": "3479449625",
+	"image": "https://mcprobuilders.com/pictures/hero-bg.jpg",
+	"url": "https://mcprobuilders.com/",
+	"telephone": "+13479449625",
 	"priceRange": "$$",
 	"address": {
 	"@type": "PostalAddress",
@@ -404,10 +393,42 @@ function showCopiedAlert() {
 		,"name" : "US"
 	}
   },
-  "areaServed": ["Old Bridge, NJ", "Marlboro, NJ", "Freehold, NJ", "Matawan, NJ", "Holmddel, NJ", "Manalapan, NJ"],
+  "areaServed": [
+    { "@type": "AdministrativeArea", "name": "Marlboro Township, NJ", "address": { "@type": "PostalAddress", "addressRegion": "NJ" } },
+    { "@type": "AdministrativeArea", "name": "Old Bridge, NJ", "address": { "@type": "PostalAddress", "addressRegion": "NJ" } },
+    { "@type": "AdministrativeArea", "name": "Colts Neck, NJ", "address": { "@type": "PostalAddress", "addressRegion": "NJ" } },
+    { "@type": "City", "name": "Spotswood, NJ", "address": { "@type": "PostalAddress", "addressRegion": "NJ" } },
+    { "@type": "AdministrativeArea", "name": "Morganville, NJ", "address": { "@type": "PostalAddress", "addressRegion": "NJ", "postalCode": "07751" } },
+    { "@type": "City", "name": "Matawan, NJ", "address": { "@type": "PostalAddress", "addressRegion": "NJ", "postalCode": "07747" } },
+    { "@type": "AdministrativeArea", "name": "Aberdeen Township, NJ", "address": { "@type": "PostalAddress", "addressRegion": "NJ" } },
+    { "@type": "AdministrativeArea", "name": "Manalapan Township, NJ", "address": { "@type": "PostalAddress", "addressRegion": "NJ", "postalCode": "07726" } },
+    { "@type": "City", "name": "Freehold, NJ", "address": { "@type": "PostalAddress", "addressRegion": "NJ", "postalCode": "07728" } },
+    { "@type": "City", "name": "Holmdel, NJ", "address": { "@type": "PostalAddress", "addressRegion": "NJ" } },
+    { "@type": "City", "name": "Helmetta, NJ", "address": { "@type": "PostalAddress", "addressRegion": "NJ" } },
+    { "@type": "City", "name": "Englishtown, NJ", "address": { "@type": "PostalAddress", "addressRegion": "NJ", "postalCode": "07726" } },
+    { "@type": "City", "name": "Sayreville, NJ", "address": { "@type": "PostalAddress", "addressRegion": "NJ" } },
+    { "@type": "City", "name": "Hazlet, NJ", "address": { "@type": "PostalAddress", "addressRegion": "NJ" } },
+    { "@type": "City", "name": "East Brunswick, NJ", "address": { "@type": "PostalAddress", "addressRegion": "NJ" } },
+    { "@type": "AdministrativeArea", "name": "Monroe Township, NJ", "address": { "@type": "PostalAddress", "addressRegion": "NJ", "postalCode": "08831" } },
+    { "@type": "City", "name": "Robertsville, NJ", "address": { "@type": "PostalAddress", "addressRegion": "NJ", "postalCode": "07751" } },
+    { "@type": "City", "name": "Keyport, NJ", "address": { "@type": "PostalAddress", "addressRegion": "NJ" } },
+    { "@type": "City", "name": "Wickatunk, NJ", "address": { "@type": "PostalAddress", "addressRegion": "NJ", "postalCode": "07751" } },
+    { "@type": "AdministrativeArea", "name": "Freehold Township, NJ", "address": { "@type": "PostalAddress", "addressRegion": "NJ" } }
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+13479449625",
+    "contactType": "customer service",
+    "email": "ivan.handyman.pro@gmail.com"
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "09:00", "closes": "22:00" }
+  ],
   "sameAs": [
     "https://www.facebook.com/IvanHandymanPro",
-    "https://wa.me/13479449625"
+    "https://wa.me/13479449625",
+    "https://t.me/IvanHandyman",
+    "mailto:ivan.handyman.pro@gmail.com"
   ]
 }
 </script>
