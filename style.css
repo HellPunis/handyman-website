@@ -1034,10 +1034,16 @@ body {
     z-index: 9999;
     opacity: 0;
     transition: opacity 0.3s ease;
+    visibility: hidden; 
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s; 
 }
 
 .copy-alert.show {
     opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 0.3s ease;
 }
 
 .copy-alert i {

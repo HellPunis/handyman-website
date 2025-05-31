@@ -449,5 +449,106 @@ function showCopiedAlert() {
     <i class="fas fa-check-circle"></i> Phone number copied!
 </div>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+    // Вспомогательная функция для отправки событий в Google Analytics
+    function sendGAEvent(eventName, eventParams) {
+        if (typeof gtag === 'function') {
+            gtag('event', eventName, eventParams);
+            console.log('GA Event Sent:', eventName, eventParams); // Для отладки
+        } else {
+            console.error('gtag function is not defined. Google Analytics (G-JQK97154N0) might not be set up correctly or script loaded yet.');
+        }
+    }
+
+    // 1. Отслеживание кнопки "Get a FREE Quote" в промо-секции (hero-section)
+    const heroQuoteButton = document.querySelector('.hero-cta');
+    if (heroQuoteButton) {
+        heroQuoteButton.addEventListener('click', function() {
+            sendGAEvent('hero_quote_click', {
+                'button_text': 'Get a FREE Quote',
+                'section': 'hero'
+            });
+        });
+    }
+
+    // 2. Отслеживание клика по ссылке с номером телефона в разделе контактов
+    const contactPhoneLink = document.querySelector('a.contact-link[href^="tel:"]');
+    if (contactPhoneLink) {
+        contactPhoneLink.addEventListener('click', function() {
+            sendGAEvent('contact_phone_click', {
+                'contact_method': 'phone',
+                'phone_number': this.href.replace('tel:', ''),
+                'section': 'contact'
+            });
+        });
+    }
+
+    // 3. Отслеживание клика по ссылке "Text Me" (SMS) в разделе контактов
+    const contactSmsLink = document.querySelector('a.contact-link[href^="sms:"]');
+    if (contactSmsLink) {
+        contactSmsLink.addEventListener('click', function() {
+            sendGAEvent('contact_sms_click', {
+                'contact_method': 'sms',
+                'phone_number': this.href.replace('sms:', '').split('?')[0],
+                'section': 'contact'
+            });
+        });
+    }
+
+    // 4. Отслеживание кликов по ссылкам на социальные сети
+    const socialMediaLinks = document.querySelectorAll('.social-link');
+    socialMediaLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+            let networkName = link.textContent.trim();
+            if (!networkName || networkName.length < 2) {
+                if (link.href.includes('facebook.com')) {
+                    networkName = 'Facebook';
+                } else if (link.href.includes('wa.me')) {
+                    networkName = 'WhatsApp';
+                } else if (link.href.includes('t.me')) {
+                    networkName = 'Telegram';
+                } else {
+                    networkName = 'Unknown Social Link';
+                }
+            }
+            sendGAEvent('social_media_click', {
+                'social_network_name': networkName,
+                'clicked_url': link.href,
+                'section': 'contact'
+            });
+        });
+    });
+
+    // 5. Отслеживание кнопки "Get a Quote" в шапке сайта (header)
+    const headerQuoteButton = document.querySelector('.header .cta-button');
+    if (headerQuoteButton) {
+        headerQuoteButton.addEventListener('click', function() {
+            sendGAEvent('header_quote_click', {
+                'button_text': 'Get a Quote',
+                'section': 'header'
+            });
+        });
+    }
+
+    // 6. Отслеживание клика по ссылке с email в разделе контактов
+    // Ищем ссылку с href начинающимся на "mailto:" и классом .contact-link
+    const contactEmailLink = document.querySelector('a.contact-link[href^="mailto:"]');
+    if (contactEmailLink) {
+        contactEmailLink.addEventListener('click', function() {
+            // Извлекаем email адрес из href, убирая "mailto:" и параметры после "?"
+            const emailAddress = this.href.replace('mailto:', '').split('?')[0];
+            sendGAEvent('contact_email_click', {
+                'contact_method': 'email',
+                'email_address': emailAddress,
+                'section': 'contact'
+            });
+        });
+    }
+
+}); // Конец addEventListener для DOMContentLoaded
+</script>
+
 </body>
 </html>
