@@ -1050,3 +1050,130 @@ body {
     font-size: 1.2rem;
     color: var(--primary-orange);
 }
+
+.policy-content-section {
+    /* * Общий padding-top для body уже задан в стилях выше (80px для десктопа, 120px/110px для мобильных).
+     * Этот padding-top здесь - для дополнительного отступа самого текстового блока от начала <main>.
+     */
+    padding-top: 2.5rem; /* Отступ сверху внутри секции */
+    padding-bottom: 4rem; /* Отступ снизу внутри секции */
+    background-color: var(--white); /* Фон для текстовой области, если нужен отличный от body */
+}
+
+.policy-content-section .section-container {
+    max-width: 800px; /* Оптимальная ширина для длинных текстов на десктопе */
+    margin: 0 auto;
+    padding: 0 2rem;   /* Боковые отступы на десктопе */
+    text-align: left; /* Текст выравнивается по левому краю для лучшей читаемости */
+}
+
+/* Заголовок страницы политики (H1) */
+.policy-content-section h1.section-title { /* Используем существующий класс .section-title */
+    text-align: center;
+    font-size: 2.2rem; 
+    margin-bottom: 2.5rem;
+    color: var(--primary-blue);
+}
+
+/* Подзаголовки (H2) на странице политики */
+.policy-content-section h2 {
+    font-size: 1.6rem;
+    margin-top: 2.5rem; /* Больший отступ сверху для H2 */
+    margin-bottom: 1rem;
+    color: var(--primary-blue);
+    border-bottom: 1px solid #eee; /* Легкое подчеркивание для разделения секций */
+    padding-bottom: 0.5rem;
+}
+
+/* Стили для параграфов и списков */
+.policy-content-section p,
+.policy-content-section ul,
+.policy-content-section ol {
+    margin-bottom: 1.2rem; /* Увеличенный отступ для лучшего разделения блоков текста */
+    line-height: 1.75;     /* Увеличенная высота строки для комфортного чтения */
+    font-size: 1rem;       /* Базовый размер шрифта */
+    color: var(--dark-text);
+}
+
+.policy-content-section ul,
+.policy-content-section ol {
+    padding-left: 20px; /* Стандартный отступ для списков */
+}
+
+.policy-content-section ul li,
+.policy-content-section ol li {
+    margin-bottom: 0.6rem; /* Отступ между элементами списка */
+}
+
+/* Ссылки внутри текста политики */
+.policy-content-section a {
+    color: var(--primary-orange);
+    text-decoration: underline;
+    word-break: break-word; /* Помогает переносить длинные ссылки */
+}
+
+.policy-content-section a:hover {
+    text-decoration: none;
+}
+
+.policy-content-section strong { /* Для выделения важных моментов */
+    font-weight: 600; 
+    color: #000; /* Чуть темнее основного текста для акцента */
+}
+
+.policy-content-section em { /* Для дат или специфических терминов */
+    font-style: normal;
+    color: #555;
+}
+
+
+/* --- Мобильная оптимизация для страниц политик --- */
+
+@media (max-width: 768px) {
+    .policy-content-section {
+        padding-top: 2rem;    /* Уменьшаем верхний отступ секции на мобильных */
+        padding-bottom: 3rem; /* Уменьшаем нижний отступ секции на мобильных */
+    }
+
+    .policy-content-section .section-container {
+        padding: 0 1rem; /* Уменьшаем боковые отступы на мобильных */
+    }
+
+    .policy-content-section h1.section-title {
+        font-size: 1.8rem; /* Уменьшаем главный заголовок */
+        margin-bottom: 2rem;
+    }
+
+    .policy-content-section h2 {
+        font-size: 1.4rem; /* Уменьшаем подзаголовки */
+        margin-top: 2rem;
+    }
+
+    .policy-content-section p,
+    .policy-content-section ul,
+    .policy-content-section ol {
+        font-size: 0.95rem; /* Немного уменьшаем основной текст для мобильных */
+        line-height: 1.7;  /* Сохраняем хорошую высоту строки */
+    }
+}
+
+@media (max-width: 480px) {
+    .policy-content-section .section-container {
+        padding: 0 0.75rem; /* Еще меньше боковые отступы для очень маленьких экранов */
+    }
+    
+    .policy-content-section h1.section-title {
+        font-size: 1.6rem;
+    }
+
+    .policy-content-section h2 {
+        font-size: 1.25rem;
+    }
+
+    .policy-content-section p,
+    .policy-content-section ul,
+    .policy-content-section ol {
+        font-size: 0.9rem;
+        line-height: 1.65;
+    }
+}

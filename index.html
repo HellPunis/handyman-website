@@ -274,10 +274,16 @@
 				<div class="form-container">
 					<h2 class="section-title contact-title">Get a Quote</h2>
 					<form class="contact-form" action="https://formspree.io/f/myzwepvo" method="POST">
-						<input type="text" name="name" placeholder="Your Name" required>
-						<input type="text" name="contact_info" placeholder="Phone or Email" required>
-						<textarea name="message" placeholder="Task Details" rows="6" required></textarea>
-						<button type="submit" class="form-submit-btn">Send Request</button>
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="text" name="contact_info" placeholder="Phone or Email" required>
+                        <textarea name="message" placeholder="Task Details" rows="6" required></textarea>
+                        <button type="submit" class="form-submit-btn">Send Request</button>
+                        <p style="font-size: 0.8rem; color: #666; margin-top: 15px; text-align: center;">
+                            By clicking "Send Request", you agree to our 
+                            <a href="terms-conditions.html" target="_blank" style="color: var(--primary-orange); text-decoration: underline;">Terms & Conditions</a> 
+                            and acknowledge you have read our 
+                            <a href="privacy-cookie-policy.html" target="_blank" style="color: var(--primary-orange); text-decoration: underline;">Privacy & Cookie Policy</a>.
+                        </p>
 					</form>
 				</div>
 	
@@ -335,14 +341,18 @@
 		</div>
 	</section>
     </main>
+    
 <footer class="main-footer">
     <div class="footer-content">
         <p class="copyright-notice">
-            &copy; 2025 MC Pro Builders LLC. All Rights Reserved.<br>
+            &copy; <script>document.write(new Date().getFullYear())</script> MC Pro Builders LLC. All Rights Reserved.<br>
             Home Improvement Contractors License Number: 13VH13662300.<br>
-	</p>
+            <a href="privacy-cookie-policy.html" style="color: white; text-decoration: underline;">Privacy & Cookie Policy</a> | 
+            <a href="terms-conditions.html" style="color: white; text-decoration: underline;">Terms & Conditions</a>
+        </p>
     </div>
 </footer>
+
 <script>
 function handlePhoneClick() {
     const phoneNumber = '+13479449625';
