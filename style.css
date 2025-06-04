@@ -815,14 +815,12 @@ body {
         /* padding: 0.3rem; /* Can add if touch targets are small */
     }
     
-    @media (max-width: 768px) {
     #home,
     #services,
     #gallery,
     #contact {
 			scroll-margin-top: 140px; /* Убедитесь, что здесь ваше актуальное значение */
 		}
-	}
 
     .hero-section {
         height: calc(100vh - 10px); /* ADJUST 170px to match new body padding-top */
