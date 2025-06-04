@@ -26,7 +26,7 @@ body {
     line-height: 1.6;
     color: var(--dark-text);
     background: var(--white);
-    padding-top: 80px;
+    padding-top: 80px; /* Default for desktop header */
 }
 
 /* Header Styles */
@@ -47,7 +47,7 @@ body {
     padding: 1rem 5%;
     max-width: 1400px;
     margin: 0 auto;
-    height: 80px;
+    height: 100%; /* Changed from 80px to use parent's height */
 }
 
 .logo-group {
@@ -57,7 +57,8 @@ body {
 }
 
 .logo {
-    height: 80px;
+    height: 100%; /* Make logo responsive to header height */
+    max-height: 60px; /* Max logo height to prevent it from being too big if header height changes */
     width: auto;
 }
 
@@ -65,6 +66,12 @@ body {
     font-size: 1.4rem;
     font-weight: 700;
     color: var(--primary-blue);
+}
+
+.nav-group {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
 }
 
 .navigation {
@@ -76,13 +83,7 @@ body {
     text-decoration: none;
     color: var(--dark-text);
     font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.nav-group {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
+    transition: color 0.3s ease, transform 0.3s ease; /* Combined transitions */
 }
 
 .nav-link:hover {
@@ -90,83 +91,14 @@ body {
     transform: translateY(-2px);
 }
 
-/* Mobile Header Fixes */
-@media (max-width: 768px) {
-    body {
-        padding-top: 120px; /* Increased from 80px to account for taller header */
-    }
-
-    .header {
-        height: auto; /* Allow header to expand vertically */
-    }
-
-    .header-content {
-        flex-direction: column;
-        gap: 1rem;
-        height: auto;
-        padding: 0 5%;
-    }
-
-    .logo-group {
-        flex-direction: column;
-        text-align: center;
-        gap: 0px;
-    }
-
-    .logo {
-        height: 50px; /* Smaller logo for mobile */
-    }
-
-    .company-name {
-        font-size: 0.8rem; /* Smaller company name */
-        line-height: 1rem;
-    }
-
-    .nav-group {
-        width: 100%;
-        flex-direction: column;
-        gap: 1rem;
-        padding: 0px 0;
-    }
-
-    .navigation {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-    }
-
-    .nav-link {
-        font-size: 0.9rem;
-    }
-
-    .cta-button {
-        width: 100%;
-        max-width: 200px;
-        margin: 0 auto;
-        padding: 10px 15px;
-        font-size: 0.9rem;
-    }
+#home,
+#services,
+#gallery,
+#contact {
+    scroll-margin-top: 80px; 
 }
 
-@media (max-width: 480px) {
-    body {
-        padding-top: 110px;
-    }
-
-    .navigation {
-        gap: 0.75rem;
-    }
-
-    .nav-link {
-        font-size: 0.85rem;
-    }
-
-    .cta-button {
-        max-width: 180px;
-    }
-}
-
-/* Get a Quote Button */
+/* Get a Quote Button (Header and other general CTAs) */
 .cta-button {
     background: var(--primary-orange);
     color: var(--white);
@@ -175,11 +107,13 @@ body {
     border-radius: 5px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    margin-right: 8px;
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* margin-right: 8px; Removed as it might not be universally needed, specific instances can add margin */
 }
 
-.cta-button i {
+.cta-button i { /* This was for hero-cta, but general .cta-button doesn't have <i> in current HTML */
     margin-right: 8px;
     font-size: 0.9em;
 }
@@ -190,96 +124,18 @@ body {
     box-shadow: 0 4px 15px rgba(247, 147, 30, 0.3);
 }
 
-@media (max-width: 768px) {
-    .nav-group {
-        margin-left: 0;
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .cta-button {
-        margin-left: 0;
-        order: 1; /* Кнопка будет последней */
-    }
-}
-
-@media (max-width: 480px) {
-    /* Убедимся, что кнопка занимает всю ширину */
-    .cta-button {
-        width: 100%;
-        max-width: 100%;
-        padding: 12px 20px;
-        font-size: 0.9rem;
-        order: 2; /* Размещаем кнопку после навигации */
-    }
-
-    /* Центрируем элементы навигации */
-    .navigation {
-        width: 100%;
-        justify-content: center;
-        gap: 0.5rem;
-        order: 1; /* Навигация будет выше кнопки */
-    }
-
-    /* Уменьшаем отступы в хедере */
-    .header-content {
-        gap: 1rem;
-        padding: 0 3%;
-    }
-
-    /* Улучшаем читаемость текста */
-    .nav-link {
-        font-size: 0.8rem;
-        padding: 0.3rem;
-    }
-
-    /* Гарантируем правильное расположение элементов */
-    .nav-group {
-        gap: 0.8rem;
-        padding: 0 0 1rem;
-    }
-
-    /* Уменьшаем логотип для очень маленьких экранов */
-    .logo {
-        height: 45px;
-    }
-
-    .company-name {
-        font-size: 0.75rem;
-    }
-}
-
-@media (max-width: 380px) {
-    /* Дополнительные правки для самых маленьких экранов */
-    .nav-link {
-        font-size: 0.75rem;
-    }
-    
-    .cta-button {
-        font-size: 0.85rem;
-        padding: 10px 15px;
-    }
-}
-
 /* Hero Section */
 .hero-section {
     background: 
-        linear-gradient(
-            rgba(0,0,0,0.5), 
-            rgba(0,0,0,0.5)
-        ),
-        linear-gradient(
-            to top, 
-            rgba(255,255,255,1) 0%, 
-            rgba(255,255,255,0) 30%
-        ),
-        url('pictures/hero-bg.jpg') center/cover;
+        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+        linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 30%),
+        url('pictures/hero-bg.jpg') center/cover no-repeat; /* Added no-repeat */
     position: relative;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 80px); /* This 80px refers to DESKTOP header. Will be adjusted in media queries. */
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 0;
+    /* margin-top: 0; This is default for sections, can be removed */
 }
 
 .hero-section::after {
@@ -289,11 +145,7 @@ body {
     left: 0;
     right: 0;
     height: 100px;
-    background: linear-gradient(
-        to top, 
-        var(--white) 10%, 
-        rgba(255,255,255,0) 90%
-    );
+    background: linear-gradient(to top, var(--white) 10%, rgba(255,255,255,0) 90%);
     z-index: 1;
 }
 
@@ -312,8 +164,7 @@ body {
     line-height: 1.2;
 }
 
-/* Hero CTA Button */
-.hero-cta {
+.hero-cta { /* Specific button for hero */
     background: var(--primary-orange);
     color: var(--white);
     padding: 15px 40px;
@@ -322,7 +173,9 @@ body {
     font-size: 1.2rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-cta:hover {
@@ -333,7 +186,7 @@ body {
 
 /* Features Section */
 .features-section {
-    padding: 6rem 5% 2rem;
+    padding: 6rem 5% 2rem; /* Consider changing 6rem to 4rem if too much space on top */
     background: var(--white);
 }
 
@@ -355,7 +208,7 @@ body {
     font-size: 3.5rem;
     color: var(--primary-blue);
     margin-bottom: 1.5rem;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, filter 0.3s ease; /* Combined */
 }
 
 .feature-title {
@@ -376,45 +229,44 @@ body {
 }
 
 .promise-content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
     display: flex;
     gap: 4rem;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1200px; /* This was repeated, keeping one */
     margin: 0 auto;
+    text-align: center; /* For overall centering if flex items don't fill width */
 }
 
 .logo-side {
-    flex: 0 0 500px;
+    flex: 0 0 500px; /* Consider making this responsive, e.g., percentage or max-width */
 }
 
 .promise-logo {
     width: 100%;
-    max-width: 500px;
+    max-width: 500px; /* This ensures it doesn't exceed 500px, good. */
     height: auto;
-    margin-top: 1rem;
+    margin-top: 1rem; /* Only if needed, alignment is by align-items: center */
 }
 
 .text-side {
     flex: 1;
+    text-align: left; /* Ensure text inside is left-aligned */
 }
 
 .service-description {
     font-size: 1.1rem;
     line-height: 1.7;
-    color: #444;
+    color: #444; /* Consider var(--dark-text) for consistency */
     margin-bottom: 2rem;
 }
 
 .service-description strong {
     color: var(--primary-blue);
-    font-weight: 600;
+    font-weight: 600; /* default strong weight is often bold/700 */
 }
 
 .service-description em {
-    font-style: normal;
+    font-style: normal; /* Keeps it from being italic if em is used for semantic stress */
     font-weight: 500;
     color: var(--primary-orange);
 }
@@ -423,7 +275,7 @@ body {
     margin-top: 2.5rem;
     padding-top: 2.5rem;
     border-top: 2px solid var(--primary-orange);
-    display: inline-block;
+    display: inline-block; /* So it only takes width of content */
 }
 
 .motto {
@@ -435,45 +287,16 @@ body {
     letter-spacing: 0.5px;
 }
 
-@media (max-width: 768px) {
-    .promise-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 2rem;
-    }
-    
-    .logo-side {
-        flex: 0 0 auto;
-    }
-    
-    .promise-logo {
-        max-width: 4000px;
-    }
-    
-    .text-side {
-        padding-top: 0;
-        margin-top: 2rem;
-    }
-    
-    .service-description {
-        text-align: left;
-    }
-    
-    .motto-box {
-        text-align: center !important;
-    }
-}
-
 /* Services Section */
 .services-section {
     padding: 4rem 5% 2rem;
     background: var(--light-bg);
 }
 
-.section-container {
+.section-container { /* Generic container for consistent max-width and centering */
     max-width: 1400px;
     margin: 0 auto;
+    padding: 0 1rem; /* Add some horizontal padding for content within section containers */
 }
 
 .section-title {
@@ -487,7 +310,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
-    padding: 0 2rem;
+    /* padding: 0 2rem; /* Padding now on .section-container */
 }
 
 .service-card {
@@ -495,7 +318,7 @@ body {
     padding: 2rem;
     border-radius: 8px;
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Combined */
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
@@ -529,7 +352,7 @@ body {
     text-align: center;
 }
 
-.estimate-button {
+.estimate-button { /* Specific button for this CTA section */
     background: var(--primary-orange);
     color: var(--white);
     padding: 18px 45px;
@@ -538,7 +361,9 @@ body {
     font-size: 1.3rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
@@ -549,10 +374,9 @@ body {
 }
 
 .estimate-button strong {
-    font-weight: 800;
+    font-weight: 800; /* Usually strong is already bold, this ensures it if needed */
     text-shadow: 0 2px 2px rgba(0,0,0,0.1);
 }
-
 
 /* Gallery Section */
 .gallery-section {
@@ -564,24 +388,24 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 1.5rem;
-    width: 100%;
-    margin: 0 auto;
+    /* width: 100%; /* Grid is block by default, width 100% is usually implied by parent */
+    /* margin: 0 auto; /* Padding now on .section-container */
 }
 
 .gallery-item {
     position: relative;
     border-radius: 8px;
     overflow: hidden;
-    transition: transform 0.3s ease;
+    /* transition: transform 0.3s ease; /* Hover effect is on image, not item */
 }
 
 .gallery-image {
     width: 100%;
-    height: auto !important;
+    /* height: auto !important; /* aspect-ratio handles height relative to width */
     aspect-ratio: 1/1;
     object-fit: cover;
-    display: block; /* Add this */
-    border-radius: 8px;
+    display: block;
+    border-radius: 8px; /* May be hidden by .gallery-item's overflow:hidden if item itself has border-radius */
     transition: transform 0.3s ease;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
@@ -595,66 +419,25 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 102, 204, 0.9);
+    background: rgba(0, 102, 204, 0.9); /* Consider using var(--primary-blue) with opacity */
     color: var(--white);
-    padding: 12px 15px;
-    font-size: 0.95rem;
+    padding: 12px 15px; /* Duplicated, keeping one */
+    font-size: 0.95rem; /* Duplicated, keeping one */
     text-align: center;
     transform: translateY(100%);
     transition: transform 0.3s ease;
     line-height: 1.4;
-    font-size: 0.95rem;
-    padding: 12px 15px;
 }
 
 .gallery-item:hover .gallery-caption {
     transform: translateY(0);
 }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    .gallery-grid {
-        grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-    }
-    .gallery-caption {
-        position: relative;
-        transform: none;
-        background: var(--primary-blue);
-        padding: 10px;
-        font-size: 0.85rem;
-        padding: 10px;
-    }
-    .gallery-item:hover .gallery-caption {
-        transform: none;
-    }
-}
-
-@media (max-width: 480px) {
-    .gallery-grid {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
-    }
-    
-    .gallery-image {
-        height: auto !important;
-    }
-    
-    .gallery-caption {
-        font-size: 0.75rem;
-        padding: 8px;
-        line-height: 1.3;
-    }
-    
-    .gallery-item {
-        margin-bottom: 5px; /* Reduce spacing between items */
-    }
-}
-
 /* Contact Section */
 .contact-section {
-    padding: 6rem 5%;
+    padding: 6rem 5%; /* Consider 4rem like other sections if 6rem is too much */
     background: var(--light-bg);
-    text-align: center;
+    text-align: center; /* For .section-title, wrapper will handle its content */
 }
 
 .contact-wrapper {
@@ -663,6 +446,7 @@ body {
     gap: 3rem;
     max-width: 1200px;
     margin: 0 auto;
+    /*text-align: left;*/  
 }
 
 .form-container {
@@ -672,23 +456,18 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-.contact-title {
-    font-size: 2.8rem;
+.contact-title { /* This specific h2 might be styled differently than generic .section-title */
+    font-size: 2.8rem; /* Larger than generic .section-title */
     margin-bottom: 3rem;
+    color: var(--primary-blue); /* Already in .section-title */
+    text-align: center; /* Added for explicitness if it's not inheriting */
 }
 
 .contact-form {
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
-    text-align: center;
-}
-.contact-form textarea {
-    resize: none; /* Disable manual resizing */
-    min-height: 150px; /* Set minimum height */
-    max-height: 150px; /* Set maximum height */
-    overflow-y: auto; /* Add scroll if content exceeds height */
-    width: 100%; /* Ensure full width */
+    /* text-align: center; /* Inputs are already centered text if desired */
 }
 
 .contact-form input,
@@ -697,10 +476,17 @@ body {
     padding: 15px;
     border: 2px solid #eee;
     border-radius: 6px;
-    font-size: 1.1rem;
-    text-align: center;
-    transition: all 0.3s ease;
-    
+    font-size: 1rem; 
+    text-align: center; 
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form textarea {
+    resize: none;
+    min-height: 150px;
+    /* max-height: 150px; /* Removed to allow more text if needed, min-height controls start */
+    overflow-y: auto;
+    /* width: 100%; /* Already covered by common rule */
 }
 
 .contact-form input:focus,
@@ -710,28 +496,25 @@ body {
     outline: none;
 }
 
-.contact-form input::placeholder {
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
     color: #999;
-    opacity: 1; /* Firefox fix */
+    opacity: 1; 
+    text-align: center; 
 }
 
-.contact-form textarea:focus {
-    border-color: var(--primary-orange);
-    box-shadow: 0 0 8px rgba(247,147,30,0.2);
-    outline: none;
-}
-
-/* Updated Send Request Button */
-.form-submit-btn {
+.form-submit-btn { /* Specific button for form submit */
     background: var(--primary-orange);
     color: var(--white);
-    padding: 20px 40px;
+    padding: 18px 40px; /* Slightly adjusted from 20px */
     border: none;
     border-radius: 6px;
     font-size: 1.2rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-submit-btn:hover {
@@ -742,36 +525,52 @@ body {
 
 .info-container {
     background: var(--primary-blue);
-    padding: 4rem;
+    padding: 3rem; /* Reduced from 4rem for better balance with form */
     border-radius: 10px;
     color: var(--white);
+    display: flex; /* Added for better internal alignment */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: flex-start; /* Center content vertically if space allows */
+    text-align: center; 
 }
+
+.language-info, .contact-info { /* Common styling for info blocks */
+    margin-bottom: 2rem; /* Space between language and contact blocks */
+}
+.language-info:last-child, .contact-info:last-child {
+    margin-bottom: 0; /* Remove bottom margin from last block */
+}
+
 
 .language-info h3,
 .contact-info h3 {
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
+    font-size: 1.8rem; /* Reduced from 1.8rem */
+    margin-bottom: 1.5rem; /* Reduced from 2rem */
     display: flex;
     align-items: center;
-    justify-content: center;
+	justify-content: center; 
     gap: 10px;
 }
 
 .language-info p,
 .contact-info p {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.2rem; /* Reduced from 1.2rem */
+    margin-bottom: 1rem; /* Reduced from 1.5rem */
+
 }
 
 .social-links {
     display: flex;
-    gap: 1.5rem;
-    justify-content: center;
+    gap: 1.5rem; 
+	justify-content: center;
     flex-wrap: wrap;
-    margin-top: 1.5rem;
+    margin-top: 1rem; /* Reduced from 1.5rem */
+    max-width: 350px;  
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.social-link {
+.social-link { /* This is the <a> tag itself for social links */
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -780,189 +579,37 @@ body {
     padding: 8px 15px;
     border-radius: 5px;
     background: rgba(255,255,255,0.1);
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Combined */
 }
+/* Removed .social-link a {} as .social-link is the <a> tag */
 
-.social-link a {
-    color: var(--white);
-    text-decoration: none;
-    font-size: 1.3rem;
-    transition: opacity 0.3s ease;
-    display: inline-block;
-    margin-top: 1rem;
-}
-
-.social-link a:hover {
-    opacity: 0.8;
+.social-link:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+    color: var(--white); /* Ensure color remains on hover */
 }
 
 .social-link i {
-    margin-right: 10px;
+    /* margin-right: 10px; /* Replaced by gap on .social-link */
     font-size: 1.4rem;
 }
 
-.contact-link {
-    color: var(--white) !important;
+.contact-link { /* For tel, sms, mailto links */
+    color: var(--white) !important; /* Important was there, check if necessary */
     text-decoration: none;
-    transition: opacity 0.3s ease;
-    display: inline-block;
+    transition: opacity 0.3s ease, text-decoration 0.3s ease;
+    display: inline-flex; /* Changed to inline-flex for icon alignment */
+    align-items: center;
+    gap: 8px; /* Add gap for icon */
     padding: 4px 0;
+}
+.contact-link i { /* Style for icons within contact-link */
+    font-size: 1.1rem; /* Adjust as needed */
 }
 
 .contact-link:hover {
     opacity: 0.8;
     text-decoration: underline;
-}
-
-.social-link:hover {
-    background: rgba(255,255,255,0.2);
-    transform: translateY(-2px);
-}
-
-/* Enhanced Mobile Responsiveness */
-@media (max-width: 768px) {
-    .header-content {
-        flex-direction: column;
-        gap: 1.5rem;
-        padding: 1rem;
-    }
-
-    .navigation {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-    }
-    
-    .nav-group {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .hero-title {
-        font-size: 2rem;
-        padding: 0 1rem;
-    }
-
-    .hero-cta {
-        padding: 12px 25px;
-        font-size: 1.1rem;
-    }
-
-    .features-container {
-        grid-template-columns: 1fr;
-        gap: 4rem;
-    }
-
-    .services-grid,
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-wrapper {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .form-container,
-    .info-container {
-        padding: 2rem;
-    }
-
-    .info-container {
-        max-width: 100%;
-    }
-
-    .form-submit-btn {
-        padding: 15px 30px;
-        font-size: 1.1rem;
-    }
-
-    .contact-title {
-        font-size: 2.2rem;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
-    
-    .social-links {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .social-link {
-        justify-content: center;
-        padding: 10px;
-    }
-}
-
-
-
-@media (max-width: 480px) {
-    .company-name {
-        font-size: 1.1rem;
-    }
-    
-    .hero-title {
-        font-size: 1.8rem;
-    }
-    
-    .section-title {
-        font-size: 1.8rem;
-    }
-
-    .contact-title {
-        font-size: 2rem;
-    }
-
-    .language-info h3,
-    .contact-info h3 {
-        font-size: 1.4rem;
-    }
-
-    .cta-button {
-        padding: 10px 20px;
-        font-size: 0.9rem;
-    }
-
-    .feature-icon {
-        font-size: 2.5rem;
-    }
-
-    .feature-title {
-        font-size: 1.2rem;
-    }
-    
-    .social-links {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .social-link {
-        justify-content: center;
-        padding: 10px;
-    }
-}
-
-.custom-icon {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 1rem;
-    fill: var(--primary-blue);
-}
-
-
-
-/* Mobile Responsive estimate button */
-@media (max-width: 768px) {
-    .estimate-button {
-        padding: 15px 35px;
-        font-size: 1.1rem;
-    }
-    
-    .estimate-cta {
-        padding: 3rem 5%;
-    }
 }
 
 /* Footer */
@@ -985,39 +632,18 @@ body {
     opacity: 0.9;
 }
 
-.footer-links {
-    display: inline-block;
-    margin-top: 1rem;
-}
-
-.footer-link {
+.copyright-notice a { /* Style for links in footer */
     color: var(--white);
-    text-decoration: none;
-    padding: 0 0.8rem;
+    text-decoration: underline;
     transition: opacity 0.3s ease;
 }
-
-.footer-link:hover {
+.copyright-notice a:hover {
     opacity: 0.8;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
-@media (max-width: 768px) {
-    .main-footer {
-        padding: 2rem 1rem;
-    }
-    
-    .footer-links {
-        display: block;
-        margin-top: 1.2rem;
-    }
-    
-    .footer-link {
-        display: block;
-        padding: 0.4rem 0;
-    }
-}
 
+/* Copy Alert */
 .copy-alert {
     position: fixed;
     top: 20px;
@@ -1033,9 +659,8 @@ body {
     gap: 10px;
     z-index: 9999;
     opacity: 0;
-    transition: opacity 0.3s ease;
     visibility: hidden; 
-    pointer-events: none;
+    pointer-events: none; /* Already non-interactive due to visibility:hidden but good for clarity */
     transition: opacity 0.3s ease, visibility 0s linear 0.3s; 
 }
 
@@ -1043,7 +668,7 @@ body {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease; /* visibility changes immediately on show */
 }
 
 .copy-alert i {
@@ -1051,129 +676,424 @@ body {
     color: var(--primary-orange);
 }
 
+/* =============================================== */
+/* Styles for Policy Pages (Privacy, Terms, etc.)  */
+/* =============================================== */
 .policy-content-section {
-    /* * Общий padding-top для body уже задан в стилях выше (80px для десктопа, 120px/110px для мобильных).
-     * Этот padding-top здесь - для дополнительного отступа самого текстового блока от начала <main>.
-     */
-    padding-top: 2.5rem; /* Отступ сверху внутри секции */
-    padding-bottom: 4rem; /* Отступ снизу внутри секции */
-    background-color: var(--white); /* Фон для текстовой области, если нужен отличный от body */
+    padding-top: 2.5rem; 
+    padding-bottom: 4rem; 
+    background-color: var(--white); 
 }
 
 .policy-content-section .section-container {
-    max-width: 800px; /* Оптимальная ширина для длинных текстов на десктопе */
+    max-width: 800px; 
     margin: 0 auto;
-    padding: 0 2rem;   /* Боковые отступы на десктопе */
-    text-align: left; /* Текст выравнивается по левому краю для лучшей читаемости */
+    padding: 0 2rem;   
+    text-align: left; 
 }
 
-/* Заголовок страницы политики (H1) */
-.policy-content-section h1.section-title { /* Используем существующий класс .section-title */
+.policy-content-section h1.section-title {
     text-align: center;
     font-size: 2.2rem; 
     margin-bottom: 2.5rem;
     color: var(--primary-blue);
 }
 
-/* Подзаголовки (H2) на странице политики */
 .policy-content-section h2 {
     font-size: 1.6rem;
-    margin-top: 2.5rem; /* Больший отступ сверху для H2 */
+    margin-top: 2.5rem; 
     margin-bottom: 1rem;
     color: var(--primary-blue);
-    border-bottom: 1px solid #eee; /* Легкое подчеркивание для разделения секций */
+    border-bottom: 1px solid #eee; 
     padding-bottom: 0.5rem;
 }
 
-/* Стили для параграфов и списков */
 .policy-content-section p,
 .policy-content-section ul,
 .policy-content-section ol {
-    margin-bottom: 1.2rem; /* Увеличенный отступ для лучшего разделения блоков текста */
-    line-height: 1.75;     /* Увеличенная высота строки для комфортного чтения */
-    font-size: 1rem;       /* Базовый размер шрифта */
+    margin-bottom: 1.2rem; 
+    line-height: 1.75;     
+    font-size: 1rem;       
     color: var(--dark-text);
 }
 
 .policy-content-section ul,
 .policy-content-section ol {
-    padding-left: 20px; /* Стандартный отступ для списков */
+    padding-left: 20px; 
 }
 
 .policy-content-section ul li,
 .policy-content-section ol li {
-    margin-bottom: 0.6rem; /* Отступ между элементами списка */
+    margin-bottom: 0.6rem; 
 }
 
-/* Ссылки внутри текста политики */
 .policy-content-section a {
     color: var(--primary-orange);
     text-decoration: underline;
-    word-break: break-word; /* Помогает переносить длинные ссылки */
+    word-break: break-word; 
 }
 
 .policy-content-section a:hover {
     text-decoration: none;
 }
 
-.policy-content-section strong { /* Для выделения важных моментов */
+.policy-content-section strong { 
     font-weight: 600; 
-    color: #000; /* Чуть темнее основного текста для акцента */
+    color: #000; 
 }
 
-.policy-content-section em { /* Для дат или специфических терминов */
+.policy-content-section em { 
     font-style: normal;
     color: #555;
 }
 
 
-/* --- Мобильная оптимизация для страниц политик --- */
+/* =============================================== */
+/* Mobile Responsiveness (Consolidated & Ordered)  */
+/* =============================================== */
 
+/* Medium devices (tablets, less than 768px) */
 @media (max-width: 768px) {
-    .policy-content-section {
-        padding-top: 2rem;    /* Уменьшаем верхний отступ секции на мобильных */
-        padding-bottom: 3rem; /* Уменьшаем нижний отступ секции на мобильных */
+    body {
+        padding-top: 140px; /* ADJUST AS NEEDED based on actual header height */
     }
 
-    .policy-content-section .section-container {
-        padding: 0 1rem; /* Уменьшаем боковые отступы на мобильных */
+    .header {
+        height: auto;
     }
 
-    .policy-content-section h1.section-title {
-        font-size: 1.8rem; /* Уменьшаем главный заголовок */
+    .header-content { /* Combined from "Mobile Header Fixes" and "Enhanced..." */
+        flex-direction: column;
+        gap: 0.5rem; /* Reduced from 1rem/1.5rem */
+        height: auto;
+        padding: 0.5rem 5%; /* Reduced from 1rem */
+    }
+
+    .logo-group {
+        flex-direction: column;
+        text-align: center;
+        gap: 0; /* Was 0px */
+    }
+
+    .logo {
+        height: 40px; /* Reduced from 50px */
+        max-height: 40px; /* Ensure it doesn't exceed this */
+    }
+
+    .company-name {
+        font-size: 0.8rem;
+        line-height: 1rem;
+    }
+
+    .nav-group { /* Combined and simplified */
+        width: 100%;
+        flex-direction: column;
+        gap: 0.5rem; /* Reduced from 1rem */
+        padding: 0;
+        margin-left: 0; /* Was in a separate rule */
+        justify-content: center; /* Was in a separate rule */
+    }
+    
+    .nav-group .cta-button { /* Specific to header CTA */
+        order: 1; /* Button will be after navigation links if nav has no order or lower order */
+        width: auto; /* Allow button to size based on content and padding */
+        max-width: 200px; /* Restore max-width if needed */
+        margin: 0 auto; /* Center it if width is auto */
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .navigation {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem; /* Can be reduced if needed, e.g., 0.5rem */
+        order: 0; /* Ensure navigation comes before button if button has order:1 */
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+        /* padding: 0.3rem; /* Can add if touch targets are small */
+    }
+    
+    @media (max-width: 768px) {
+    #home,
+    #services,
+    #gallery,
+    #contact {
+			scroll-margin-top: 140px; /* Убедитесь, что здесь ваше актуальное значение */
+		}
+	}
+
+    .hero-section {
+        height: calc(100vh - 10px); /* ADJUST 170px to match new body padding-top */
+    }
+    .hero-title {
+        font-size: 2rem;
+        padding: 0 1rem;
+    }
+    .hero-cta {
+        padding: 12px 25px;
+        font-size: 1.1rem;
+    }
+
+    .features-container {
+        grid-template-columns: 1fr;
+        gap: 2rem; /* Reduced from 4rem */
+    }
+    
+    .service-promise {
+        padding: 2rem 5%; /* Reduced bottom padding */
+    }
+    .promise-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .logo-side {
+        flex-basis: auto; /* Reset flex-basis */
+    }
+    .promise-logo {
+        max-width: 300px; /* Reduced from 4000px (typo) and 500px */
+    }
+    .text-side {
+        margin-top: 1rem; /* Reduced from 2rem */
+    }
+    .service-description {
+        text-align: center; /* Was left, center might look better if overall section is centered */
+    }
+    .motto-box {
+        text-align: center; /* Removed !important */
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+    }
+    .motto {
+        font-size: 1.5rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem; /* Adjusted padding */
+    }
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Was already 1fr effectively due to minmax */
+    }
+    .gallery-caption {
+        position: static; /* Changed from relative to static for simplicity */
+        transform: none;
+        background: var(--primary-blue);
+        padding: 10px;
+        font-size: 0.85rem;
+    }
+    .gallery-item:hover .gallery-caption { /* Ensure hover doesn't try to transform */
+        transform: none;
+    }
+    
+    .contact-section {
+        padding: 4rem 5%; /* Reduced padding */
+    }
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .form-container,
+    .info-container {
+        padding: 1.5rem; /* Reduced padding */
+    }
+    .contact-title {
+        font-size: 2.2rem;
         margin-bottom: 2rem;
     }
-
-    .policy-content-section h2 {
-        font-size: 1.4rem; /* Уменьшаем подзаголовки */
-        margin-top: 2rem;
+    .section-title { /* General section titles */
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    .form-submit-btn {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+    }
+    .social-links { /* Consolidated from two identical blocks */
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center; /* Center items when in column */
+        max-width: none; /* Сбрасываем max-width от десктопной версии */
+		margin-left: 0; /* Сбрасываем, если не нужны */
+		margin-right: 0;/* Сбрасываем, если не нужны */
+    }
+    .social-link {
+        justify-content: center; /* Centers text/icon within the link */
+        padding: 10px 15px; /* Adjusted */
+        width: fit-content; /* Allow link to size to its content */
+    }
+    
+    .estimate-button { /* From "Mobile Responsive estimate button" */
+        padding: 15px 35px;
+        font-size: 1.1rem;
+    }
+    .estimate-cta {
+        padding: 3rem 5% 4rem; /* Adjusted padding */
     }
 
+    .main-footer {
+        padding: 2rem 1rem;
+    }
+    /* .footer-links and .footer-link were removed as unused */
+
+    /* Policy Pages Mobile */
+    .policy-content-section {
+        padding-top: 2rem; 
+        padding-bottom: 3rem;
+    }
+    .policy-content-section .section-container {
+        padding: 0 1rem;
+    }
+    .policy-content-section h1.section-title {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+    .policy-content-section h2 {
+        font-size: 1.4rem;
+        margin-top: 2rem;
+    }
     .policy-content-section p,
     .policy-content-section ul,
     .policy-content-section ol {
-        font-size: 0.95rem; /* Немного уменьшаем основной текст для мобильных */
-        line-height: 1.7;  /* Сохраняем хорошую высоту строки */
+        font-size: 0.95rem;
+        line-height: 1.7;
     }
 }
 
+/* Small devices (phones, less than 480px) */
 @media (max-width: 480px) {
-    .policy-content-section .section-container {
-        padding: 0 0.75rem; /* Еще меньше боковые отступы для очень маленьких экранов */
+    body {
+        padding-top: 120px; /* ADJUST AS NEEDED based on actual header height */
     }
     
+    .header-content { /* From "Уменьшаем отступы в хедере" */
+        gap: 0.5rem; /* Reduced from 1rem */
+        padding: 0.5rem 3%; /* Added top/bottom padding, was 0 3% */
+    }
+    .logo {
+        height: 35px; /* Reduced from 45px */
+        max-height: 35px;
+    }
+    .company-name {
+        font-size: 0.75rem; /* Was 1.1rem in one rule, 0.75rem in another. Consolidating to smaller. */
+    }
+    .nav-group { /* From "Гарантируем правильное..." */
+        gap: 0.5rem; /* Reduced from 0.8rem */
+        padding-bottom: 0.5rem; /* Reduced from 1rem */
+    }
+    .nav-group .cta-button { /* For header cta button */
+        order: 2; 
+        width: 100%; /* Ensuring it takes full width available in its column context */
+        max-width: 280px; /* Allowing it to be reasonably wide but not overly so */
+        margin: 0 auto; /* Center it */
+        padding: 10px 15px; /* Reduced from 12px 20px */
+        font-size: 0.85rem; /* Reduced from 0.9rem */
+    }
+    .navigation { /* From "Центрируем элементы навигации" */
+        width: 100%;
+        justify-content: center;
+        gap: 0.5rem; /* Kept from previous */
+        order: 1;
+    }
+    .nav-link { /* From "Улучшаем читаемость текста" */
+        font-size: 0.8rem; /* Kept from previous */
+        padding: 0.3rem; /* Kept from previous */
+    }
+    
+    #home,
+    #services,
+    #gallery,
+    #contact {
+        scroll-margin-top: 160px; /* Убедитесь, что здесь ваше актуальное значение */
+    }
+
+    .hero-section {
+        height: calc(100vh - 120px); /* ADJUST 160px to match new body padding-top */
+    }
+    .hero-title {
+        font-size: 1.6rem; /* Reduced from 1.8rem */
+    }
+    .section-title { /* General section titles */
+        font-size: 1.8rem; /* Kept */
+    }
+    .contact-title {
+        font-size: 2rem; /* Kept */
+    }
+    .language-info h3,
+    .contact-info h3 {
+        font-size: 1.3rem; /* Reduced from 1.4rem */
+    }
+    /* .cta-button (general) - was here, but header one is more specific. This might be for other CTAs if any */
+    /* .cta-button { padding: 10px 20px; font-size: 0.9rem; } */
+
+    .feature-icon {
+        font-size: 2.2rem; /* Reduced from 2.5rem */
+    }
+    .feature-title {
+        font-size: 1.1rem; /* Reduced from 1.2rem */
+    }
+
+    .gallery-grid {
+        gap: 1rem; /* Increased from 0.5rem for a bit more space */
+    }
+    .gallery-image {
+        /* height: auto !important; /* Not needed with aspect-ratio */
+    }
+    .gallery-caption {
+        font-size: 0.7rem; /* Reduced from 0.75rem */
+        padding: 6px; /* Reduced from 8px */
+        line-height: 1.2;
+    }
+    .gallery-item {
+        margin-bottom: 0.5rem; /* Reduced from 5px */
+    }
+    
+    .form-container,
+    .info-container {
+        padding: 1rem; /* Уменьшаем padding до 16px с каждой стороны */
+    }
+    /* Можно также уменьшить padding у самой секции .contact-section */
+    .contact-section {
+        padding: 3rem 2%; /* Уменьшаем боковые отступы для всей секции */
+    }
+    
+    /* Policy Pages Mobile Small */
+    .policy-content-section .section-container {
+        padding: 0 0.75rem; 
+    }
     .policy-content-section h1.section-title {
         font-size: 1.6rem;
     }
-
     .policy-content-section h2 {
         font-size: 1.25rem;
     }
-
     .policy-content-section p,
     .policy-content-section ul,
     .policy-content-section ol {
         font-size: 0.9rem;
         line-height: 1.65;
+    }
+}
+
+/* Extra small devices (very narrow phones, less than 380px) */
+@media (max-width: 380px) {
+    .nav-link {
+        font-size: 0.7rem; /* Reduced from 0.75rem */
+        padding: 0.2rem; /* Reduced padding */
+    }
+    .nav-group .cta-button { /* Header CTA */
+        font-size: 0.8rem; /* Reduced from 0.85rem */
+        padding: 8px 12px; /* Reduced */
+    }
+    .logo-group .company-name {
+		display: none; /* Optional: hide company name if too cluttered */
+    }
+    .hero-title {
+        font-size: 1.4rem;
+    }
+     .hero-cta {
+        padding: 10px 20px;
+        font-size: 1rem;
     }
 }
