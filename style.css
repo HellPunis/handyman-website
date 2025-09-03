@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
 :root {
     --primary-orange: #F7931E;
     --secondary-orange: #D97D0F;
@@ -349,7 +351,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: stretch; 
-    gap: 20px;              
+    gap: 40px;              
     flex-wrap: wrap;        
     margin-top: 3rem;
 }
@@ -373,10 +375,11 @@ body {
     width: 250px;
     height: 120px;
     padding: 15px;
-    border-radius: 8px;
+    border-radius: 14px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     text-decoration: none;
     transition: box-shadow 0.2s ease, transform 0.2s ease;
+    font-family: 'Varela Round', sans-serif;
 }
 
 .review-widget-card:hover {
@@ -386,7 +389,7 @@ body {
 
 .widget-header {
     height: 20px;
-    margin-bottom: 5px;
+    margin-bottom: 18px;
 }
 
 .widget-logo {
@@ -396,8 +399,8 @@ body {
 
 .widget-title {
     font-size: 1.35rem;
-    font-weight: 500;
-    color: #202124;
+    font-weight: 370;
+    color: #5f6368;
     text-align: center;
     line-height: 1.2;
 }
@@ -410,22 +413,35 @@ body {
 }
 
 .widget-stars {
-    color: #fbbc05;
-    font-size: 1.2rem;
+    color: #ffc107;
+    font-size: 1.1rem;
 }
 
 .widget-review-count {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #5f6368;
     padding-top: 2px;
 }
 
+.thumbtack-widget-container {
+    width: 250px;
+    height: 120px;
+    border-radius: 14px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    overflow: hidden;
+    position: relative;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
 #tt-review-widget-star {
     margin: 0;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
-    border-radius: 14px;
-    position: relative;
-    top: -3px;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.thumbtack-widget-container:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12) !important; 
+    transform: translateY(-2px); 
 }
 
 /* Service Promise Section */
