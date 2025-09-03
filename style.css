@@ -354,6 +354,16 @@ body {
     margin-top: 3rem;
 }
 
+.google-logo-text {
+    font-weight: 700;
+    font-size: 1.05em;
+}
+
+.google-logo-text .g-blue { color: #4285F4; }
+.google-logo-text .g-red { color: #EA4335; }
+.google-logo-text .g-yellow { color: #FBBC05; }
+.google-logo-text .g-green { color: #34A853; }
+
 .review-widget-card {
     display: flex;
     flex-direction: column;
